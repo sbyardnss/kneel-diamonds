@@ -1,4 +1,4 @@
-import { getMetals, setMetal } from "./database.js"
+import { getMetals, setMetal, orderBuilderState } from "./database.js"
 
 const metals = getMetals()
 
@@ -11,17 +11,42 @@ document.addEventListener(
     }
 )
 
+// export const Metals = () => {
+//     let html = `<ul class="pickers>`
+
+//     // This is how you have been converting objects to <li> elements
+//     for (const metal of metals) {
+//         html += `<li>
+//             <input type="radio" name="metal" value="${metal.id}" `
+        
+//         if (currentOrder.metalId === metal.id) {
+//             html += `checked="checked" /> ${metal.metal}
+//             </li>`
+//         } else {
+//             html += ` /> ${metal.metal}
+//             </li>`
+//         }
+//     }
+//     html += "</ul>"
+//     return html
+// }
+
 export const Metals = () => {
-    let html = "<ul>"
+    const currentOrder = orderBuilderState()
 
-    // This is how you have been converting objects to <li> elements
+    let checked = ""
+    let html = `<ul class="picker">`
     for (const metal of metals) {
+        if (currentOrder.metalId === metal.id) {
+            checked = "checked"
+        } else {
+            checked = ""
+        }
         html += `<li>
-            <input type="radio" name="metal" value="${metal.id}" /> ${metal.metal}
-        </li>`
-    }
+            <input type="radio" name="metal" value="${metal.id}" ${checked} /> ${metal.metal}
+            </li>`
 
-    html += "</ul>"
+        }
+    html += `</ul>`
     return html
 }
-

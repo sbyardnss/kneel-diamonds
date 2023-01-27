@@ -64,17 +64,25 @@ export const getTypes = () => {
 
 export const setMetal = (id) => {
     database.orderBuilder.metalId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }
 
 export const setSize = (id) => {
     database.orderBuilder.sizeId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }
 
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }
 export const setType = (id) => {
     database.orderBuilder.typeId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }
 
 export const addCustomOrder = () => {
@@ -87,3 +95,7 @@ export const addCustomOrder = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+
+export const orderBuilderState = () => {
+    return database.orderBuilder
+}

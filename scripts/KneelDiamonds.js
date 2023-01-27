@@ -10,9 +10,25 @@ document.addEventListener(
     (event) => {
         if (event.target.id === "orderButton") {
             addCustomOrder();
+            // const ckbxs = document.querySelectorAll('input[name="type"], input[name="metal"], input[name="size"], input[name="style"]' )
+            // ckbxs.forEach(ckbx => ckbx.checked = false)
         }
+
     }
 )
+
+// document.addEventListener(
+//     "click",
+//     (event) => {
+//         const itemClicked = event.target
+//         if (itemClicked.id.startsWith("orderButton")) {
+//             addCustomOrder()
+
+//         }
+
+//     }
+// )
+
 
 export const KneelDiamonds = () => {
     return `
@@ -32,13 +48,13 @@ export const KneelDiamonds = () => {
                 ${JewelryStyles()}
             </section>
         </article>
-
-        <article>
-            <button id="orderButton">Create Custom Order</button>
-        </article>
         <article>
             ${Types()}
         </article>
+        <article>
+            <button id="orderButton">Create Custom Order</button>
+        </article>
+
 
         <article class="customOrders">
             <h2>Custom Jewelry Orders</h2>
