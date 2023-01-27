@@ -1,4 +1,6 @@
-import { getMetals, setMetal, orderBuilderState } from "./database.js"
+// import { getMetals, setMetal, orderBuilderState } from "./database.js"
+import { getMetals, setMetal, orderBuilderState } from "./dataAccess.js"
+
 
 const metals = getMetals()
 

@@ -5,7 +5,7 @@
     modules to get copies of the state.
 
 */
-const database = {
+export const database = {
     styles: [
         { id: 1, style: "Classic", price: 500 },
         { id: 2, style: "Modern", price: 710 },
@@ -42,60 +42,65 @@ const database = {
     orderBuilder: {}
 }
 
-export const getMetals = () => {
-    return database.metals.map(metal => ({...metal}))
+
+export const databaseState = () => {
+    return database
 }
 
-export const getSizes = () => {
-    return database.sizes.map(size => ({...size}))
-}
+// export const getMetals = () => {
+//     return database.metals.map(metal => ({...metal}))
+// }
 
-export const getStyles = () => {
-    return database.styles.map(style => ({...style}))
-}
+// export const getSizes = () => {
+//     return database.sizes.map(size => ({...size}))
+// }
 
-export const getOrders = () => {
-    return database.customOrders.map(order => ({...order}))
-}
-export const getTypes = () => {
-    return database.types.map(type => ({...type}))
-}
+// export const getStyles = () => {
+//     return database.styles.map(style => ({...style}))
+// }
 
-
-export const setMetal = (id) => {
-    database.orderBuilder.metalId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-
-}
-
-export const setSize = (id) => {
-    database.orderBuilder.sizeId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-
-}
-
-export const setStyle = (id) => {
-    database.orderBuilder.styleId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-
-}
-export const setType = (id) => {
-    database.orderBuilder.typeId = id
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-
-}
-
-export const addCustomOrder = () => {
-    const newOrder = {...database.orderBuilder}
-    const lastIndex = database.customOrders.length - 1
-    newOrder.id = database.customOrders[lastIndex].id + 1
-    newOrder.timestamp = Date.now()
-    database.customOrders.push(newOrder)
-    database.orderBuilder = {}
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-}
+// export const getOrders = () => {
+//     return database.customOrders.map(order => ({...order}))
+// }
+// export const getTypes = () => {
+//     return database.types.map(type => ({...type}))
+// }
 
 
-export const orderBuilderState = () => {
-    return database.orderBuilder
-}
+// export const setMetal = (id) => {
+//     database.orderBuilder.metalId = id
+//     document.dispatchEvent(new CustomEvent("stateChanged"))
+
+// }
+
+// export const setSize = (id) => {
+//     database.orderBuilder.sizeId = id
+//     document.dispatchEvent(new CustomEvent("stateChanged"))
+
+// }
+
+// export const setStyle = (id) => {
+//     database.orderBuilder.styleId = id
+//     document.dispatchEvent(new CustomEvent("stateChanged"))
+
+// }
+// export const setType = (id) => {
+//     database.orderBuilder.typeId = id
+//     document.dispatchEvent(new CustomEvent("stateChanged"))
+
+// }
+
+// export const addCustomOrder = () => {
+//     const newOrder = {...database.orderBuilder}
+//     const lastIndex = database.customOrders.length - 1
+//     newOrder.id = database.customOrders[lastIndex].id + 1
+//     newOrder.timestamp = Date.now()
+//     database.customOrders.push(newOrder)
+//     database.orderBuilder = {}
+//     document.dispatchEvent(new CustomEvent("stateChanged"))
+// }
+
+
+// export const orderBuilderState = () => {
+//     return database.orderBuilder
+// }

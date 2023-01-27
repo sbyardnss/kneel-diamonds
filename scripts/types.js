@@ -1,4 +1,6 @@
-import { getTypes, setType, orderBuilderState } from "./database.js"
+// import { getTypes, setType, orderBuilderState } from "./database.js"
+import { getTypes, setType, orderBuilderState } from "./dataAccess.js"
+
 
 const types = getTypes()
 
