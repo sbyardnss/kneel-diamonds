@@ -23,11 +23,7 @@ const buildOrderListItem = (order) => {
             return style.id === order.styleId
         }
     )
-    const foundType = types.find(
-        (type) => {
-            return type.id === order.typeId
-        }
-    )
+
     
 
 
